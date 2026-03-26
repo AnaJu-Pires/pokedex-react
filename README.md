@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+## Exercício – Melhorando a Pokédex!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Objetivo Geral
 
-Currently, two official plugins are available:
+A partir do código base da Pokédex implementado em aula, você deverá realizar melhorias funcionais e visuais que envolvem o uso de props, useState, useEffect, estilização separada e organização de componentes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+#### Tarefas obrigatórias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Refatore o componente principal (Pokedex.tsx) para que ele utilize um componente PokeCard. Este novo componente deverá receber os dados do Pokémon via props e exibi-los com base no que já foi implementado (nome, altura, peso, tipos e imagem).
 
-## Expanding the ESLint configuration
+- Adicione a funcionalidade de “favoritar” um Pokémon:
+  - Crie um botão no PokeCard que permita marcar ou desmarcar um Pokémon como favorito.
+  - Use o useState dentro do PokeCard para armazenar esse estado.
+  - Exiba um ⭐ ao lado do nome se o Pokémon estiver marcado como favorito.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Estilize a aplicação utilizando o arquivo Pokedex.css e crie um novo PokeCard.css:
+  - Separe as responsabilidades visuais entre os arquivos CSS de Pokedex e PokeCard.
+  - Melhore o layout centralizando a tela, ajustando cores e tornando os elementos visualmente mais amigáveis.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Utilize o useEffect para exibir uma mensagem no console toda vez que um novo Pokémon for carregado:
+  - Exemplo de mensagem: "Pokémon Bulbasaur carregado com sucesso!".
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Dicas**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Crie o PokeCard.tsx em src/components.
+- No useEffect, adicione pokemon como dependência para escutar mudanças nos dados.
+- Lembre-se de que props são apenas leitura. O estado de favorito deve ser local ao PokeCard.
+- Mantenha a legibilidade do código: separe lógica, apresentação e estilo de forma limpa.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+#### Critérios de avaliação
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Critério Peso:
+
+- Uso correto de props e PokeCard 3.0
+- Implementação da lógica de favorito 2.0
+- Uso de useEffect para log de evento 2.0
+- Organização do CSS em arquivos separados 1.5
+- Organização geral e clareza do código 1.5
+
+**Desafio (extra)**
+
+- Permita buscar vários Pokémons em sequência e mostre todos abaixo, em cards separados.
+- Armazene os favoritos em localStorage usando useEffect.(ou seja quando recarregar a pagina os favoritos ainda vao estar marcado como favoritos)
+- Faça um css correspondente e responsivo

@@ -45,4 +45,3 @@ Critério Peso:
 
 - Permita buscar vários Pokémons em sequência e mostre todos abaixo, em cards separados.
 - Armazene os favoritos em localStorage usando useEffect.(ou seja quando recarregar a pagina os favoritos ainda vao estar marcado como favoritos)
-- Faça um css correspondente e responsivo
